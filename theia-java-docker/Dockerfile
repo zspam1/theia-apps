@@ -12,7 +12,7 @@ RUN apt-get update && \
                        curl \
                        git \
                        gpg \
-                       python maven gradle vim\
+                       python maven gradle vim ansible\
                        wget \
                        xz-utils \
                        sudo \
