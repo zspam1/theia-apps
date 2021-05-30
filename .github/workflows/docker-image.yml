@@ -5,6 +5,12 @@ on:
     branches: [ feature/1-remove-entrypoint ]
   pull_request:
     branches: [ feature/1-remove-entrypoint ]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Docker Token'
+        required: true
+        default: 'SOMETOKEN'
 
 jobs:
 
