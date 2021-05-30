@@ -25,4 +25,4 @@ jobs:
 #     - name: Log into registry
 #         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
     - name: Build the Docker image
-      run: cd cd theia-java-docker && docker build . --file Dockerfile --tag  zspam1/theia-java:$(date +%s)
+      run: cd theia-java-docker && docker build . --file Dockerfile --tag  zspam1/theia-java:$(date +%s)
