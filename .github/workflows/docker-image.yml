@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ feature/1-remove-entrypoint ]
+  pull_request:
+    branches: [ feature/1-remove-entrypoint ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+#     - name: Log into registry
+#         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+    - name: enter dir
+      run: cd theia-java-docker
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag  zspam1/theia-java:$(date +%s)
