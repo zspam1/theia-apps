@@ -284,6 +284,15 @@ RUN \
 ENV DART_SDK /usr/lib/dart
 ENV PATH $DART_SDK/bin:/theia/.pub-cache/bin:$PATH
 
+RUN apt-get update && \
+    apt-get -y install nginx systemd vim openssh-server apt-transport-https ca-certificates curl software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic test"
+RUN apt-get update  && \
+    apt-get -y install docker-ce
+RUN sudo touch /var/run/docker.sock
+RUN sudo chmod 777 /var/run/docker.sock
+
 WORKDIR /home/theia
 
 COPY --from=theia --chown=theia:theia /home/theia /home/theia
@@ -322,4 +331,4 @@ ENV SHELL=/bin/bash \
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-ENTRYPOINT [ "node", "/home/theia/src-gen/backend/main.js", "/home/project", "--hostname=0.0.0.0" ]
+CMD [ "node", "/home/theia/src-gen/backend/main.js", "/home/project", "--hostname=0.0.0.0" ]

@@ -34,6 +34,14 @@ Collection of example cloud & desktop applications built using the [Theia](https
 
 ### Overview
 
+This repository is a fork from https://github.com/theia-ide/theia-apps.
+The purpose is to remove the entrypoint for more flexibility and provide more plugin.
+
+Image list:
+zspam1/theia
+zspam1/theia-full
+
+
 This repository contains a collection of Theia-based IDE applications (both electron desktop apps and docker images) as examples, for demo and continuous-integration purposes.
 
 ### Docker Image Variants
