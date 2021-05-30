@@ -7,7 +7,7 @@ on:
     branches: [ feature/1-remove-entrypoint ]
   workflow_dispatch:
     inputs:
-      name:
+      docker_token: 
         description: 'Docker Token'
         required: true
         default: 'SOMETOKEN'
