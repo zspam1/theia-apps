@@ -2,6 +2,7 @@ ARG NODE_VERSION=12.18.3
 
 FROM node:$NODE_VERSION as theia
 
+RUN apt-get -qq update && apt-get install -y libsecret-1-dev
 ARG GITHUB_TOKEN
 ARG version=latest
 
@@ -20,6 +21,9 @@ RUN yarn --pure-lockfile && \
     yarn cache clean
 
 FROM node:$NODE_VERSION
+
+RUN apt-get -qq update && \
+    apt-get install -y libsecret-1-0
 
 COPY --from=theia /home/theia /home/theia
 
